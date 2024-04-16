@@ -1,0 +1,78 @@
+Args in experiment:
+Namespace(model='lstm', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=288, out_len=48, seg_lens='6,10,15,20,30,60', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : lstm_m1999m_il288_ol48_sl6,10,15,20,30,60_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7728
+val 1106
+test 2257
+	iters: 100, epoch: 1 | loss: 0.6299418
+	speed: 0.0827s/iter; left time: 391.8839s
+	iters: 200, epoch: 1 | loss: 0.6314532
+	speed: 0.0809s/iter; left time: 375.5513s
+Epoch: 1 cost time: 18.879392623901367
+Epoch: 1, Steps: 242 | Train Loss: 0.6602467 Vali Loss: 0.5448499 Test Loss: 1.8928225
+Validation loss decreased (inf --> 0.544850).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.4026241
+	speed: 0.0716s/iter; left time: 322.0341s
+	iters: 200, epoch: 2 | loss: 0.3594332
+	speed: 0.0823s/iter; left time: 362.1622s
+Epoch: 2 cost time: 18.520126342773438
+Epoch: 2, Steps: 242 | Train Loss: 0.4412082 Vali Loss: 0.4373090 Test Loss: 1.5991627
+Validation loss decreased (0.544850 --> 0.437309).  Saving model ...
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.3504834
+	speed: 0.0778s/iter; left time: 331.0608s
+	iters: 200, epoch: 3 | loss: 0.4926237
+	speed: 0.0804s/iter; left time: 334.3073s
+Epoch: 3 cost time: 19.47179388999939
+Epoch: 3, Steps: 242 | Train Loss: 0.3594718 Vali Loss: 0.4263299 Test Loss: 1.5848853
+Validation loss decreased (0.437309 --> 0.426330).  Saving model ...
+	iters: 100, epoch: 4 | loss: 0.3544209
+	speed: 0.0836s/iter; left time: 335.5983s
+	iters: 200, epoch: 4 | loss: 0.3372491
+	speed: 0.0738s/iter; left time: 289.1212s
+Epoch: 4 cost time: 18.791603326797485
+Epoch: 4, Steps: 242 | Train Loss: 0.3475988 Vali Loss: 0.4086039 Test Loss: 1.5391609
+Validation loss decreased (0.426330 --> 0.408604).  Saving model ...
+Updating learning rate to 2.5e-05
+	iters: 100, epoch: 5 | loss: 0.4757440
+	speed: 0.0884s/iter; left time: 333.3626s
+	iters: 200, epoch: 5 | loss: 0.3041664
+	speed: 0.0845s/iter; left time: 310.2138s
+Epoch: 5 cost time: 19.940277338027954
+Epoch: 5, Steps: 242 | Train Loss: 0.3348638 Vali Loss: 0.3995404 Test Loss: 1.4986744
+Validation loss decreased (0.408604 --> 0.399540).  Saving model ...
+	iters: 100, epoch: 6 | loss: 0.2520609
+	speed: 0.0861s/iter; left time: 303.8597s
+	iters: 200, epoch: 6 | loss: 0.3460305
+	speed: 0.0798s/iter; left time: 273.9531s
+Epoch: 6 cost time: 20.50343084335327
+Epoch: 6, Steps: 242 | Train Loss: 0.3285200 Vali Loss: 0.3769365 Test Loss: 1.4921072
+Validation loss decreased (0.399540 --> 0.376937).  Saving model ...
+Updating learning rate to 1.25e-05
+	iters: 100, epoch: 7 | loss: 0.3121356
+	speed: 0.0853s/iter; left time: 280.6729s
+	iters: 200, epoch: 7 | loss: 0.2517033
+	speed: 0.0764s/iter; left time: 243.5758s
+Epoch: 7 cost time: 19.16034507751465
+Epoch: 7, Steps: 242 | Train Loss: 0.3225565 Vali Loss: 0.3878195 Test Loss: 1.4833308
+EarlyStopping counter: 1 out of 3
+	iters: 100, epoch: 8 | loss: 0.3434236
+	speed: 0.0932s/iter; left time: 283.8673s
+	iters: 200, epoch: 8 | loss: 0.2514797
+	speed: 0.0817s/iter; left time: 240.6681s
+Epoch: 8 cost time: 20.34610152244568
+Epoch: 8, Steps: 242 | Train Loss: 0.3188239 Vali Loss: 0.3944064 Test Loss: 1.4884809
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 6.25e-06
+	iters: 100, epoch: 9 | loss: 0.2347005
+	speed: 0.0825s/iter; left time: 231.5266s
+	iters: 200, epoch: 9 | loss: 0.3369037
+	speed: 0.0791s/iter; left time: 213.9526s
+Epoch: 9 cost time: 19.5796000957489
+Epoch: 9, Steps: 242 | Train Loss: 0.3154563 Vali Loss: 0.4015655 Test Loss: 1.4834895
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : lstm_m1999m_il288_ol48_sl6,10,15,20,30,60_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2257
+mse:1.4690377712249756, mae:0.9923912882804871
