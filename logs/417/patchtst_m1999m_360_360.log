@@ -1,0 +1,40 @@
+Args in experiment:
+Namespace(model='patchtst', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=360, seg_lens='64', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline='True', fc_dropout=0.05, head_dropout=0.0, patch_len=12, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=1e-05, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : patchtst_m1999m_il360_ol360_sl64_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7344
+val 794
+test 1945
+	iters: 100, epoch: 1 | loss: 0.8969541
+	speed: 0.1557s/iter; left time: 700.7111s
+	iters: 200, epoch: 1 | loss: 0.7188388
+	speed: 0.1466s/iter; left time: 645.2745s
+Epoch: 1 cost time: 34.557860374450684
+Epoch: 1, Steps: 230 | Train Loss: 0.8063320 Vali Loss: 0.3815100 Test Loss: 0.5702985
+Validation loss decreased (inf --> 0.381510).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.6492067
+	speed: 0.1612s/iter; left time: 688.5839s
+	iters: 200, epoch: 2 | loss: 0.7987068
+	speed: 0.1265s/iter; left time: 527.6523s
+Epoch: 2 cost time: 33.1594557762146
+Epoch: 2, Steps: 230 | Train Loss: 0.7083940 Vali Loss: 0.3819717 Test Loss: 0.5529938
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-06
+	iters: 100, epoch: 3 | loss: 0.6485130
+	speed: 0.1328s/iter; left time: 536.8050s
+	iters: 200, epoch: 3 | loss: 0.6392189
+	speed: 0.1476s/iter; left time: 581.8087s
+Epoch: 3 cost time: 32.37448310852051
+Epoch: 3, Steps: 230 | Train Loss: 0.6832775 Vali Loss: 0.3823962 Test Loss: 0.5500306
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 4 | loss: 0.7091398
+	speed: 0.1447s/iter; left time: 551.5099s
+	iters: 200, epoch: 4 | loss: 0.6954222
+	speed: 0.1402s/iter; left time: 520.3923s
+Epoch: 4 cost time: 32.455442667007446
+Epoch: 4, Steps: 230 | Train Loss: 0.6751293 Vali Loss: 0.3843236 Test Loss: 0.5482047
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : patchtst_m1999m_il360_ol360_sl64_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 1945
+mse:0.5702023506164551, mae:0.48510584235191345

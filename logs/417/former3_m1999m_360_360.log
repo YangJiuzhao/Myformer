@@ -1,0 +1,40 @@
+Args in experiment:
+Namespace(model='former', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=360, seg_lens='30,45,60,90,120', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=1e-05, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : former_m1999m_il360_ol360_sl30,45,60,90,120_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7344
+val 794
+test 1945
+	iters: 100, epoch: 1 | loss: 0.8149928
+	speed: 0.4373s/iter; left time: 1968.3505s
+	iters: 200, epoch: 1 | loss: 0.6781586
+	speed: 0.4233s/iter; left time: 1862.8666s
+Epoch: 1 cost time: 98.11032557487488
+Epoch: 1, Steps: 230 | Train Loss: 0.7647849 Vali Loss: 0.3654932 Test Loss: 1.1541292
+Validation loss decreased (inf --> 0.365493).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.5791650
+	speed: 0.3519s/iter; left time: 1502.8749s
+	iters: 200, epoch: 2 | loss: 0.7006307
+	speed: 0.3934s/iter; left time: 1640.7186s
+Epoch: 2 cost time: 86.57630109786987
+Epoch: 2, Steps: 230 | Train Loss: 0.6392473 Vali Loss: 0.4008223 Test Loss: 0.8752599
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-06
+	iters: 100, epoch: 3 | loss: 0.6739429
+	speed: 0.3583s/iter; left time: 1447.9002s
+	iters: 200, epoch: 3 | loss: 0.6337788
+	speed: 0.3743s/iter; left time: 1475.0736s
+Epoch: 3 cost time: 87.00553560256958
+Epoch: 3, Steps: 230 | Train Loss: 0.6184591 Vali Loss: 0.3811274 Test Loss: 0.8428940
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 4 | loss: 0.5908034
+	speed: 0.3830s/iter; left time: 1459.6922s
+	iters: 200, epoch: 4 | loss: 0.6706755
+	speed: 0.4149s/iter; left time: 1539.5155s
+Epoch: 4 cost time: 90.92695951461792
+Epoch: 4, Steps: 230 | Train Loss: 0.6043789 Vali Loss: 0.3783036 Test Loss: 0.8007500
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : former_m1999m_il360_ol360_sl30,45,60,90,120_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 1945
+mse:1.1519367694854736, mae:0.9120236039161682

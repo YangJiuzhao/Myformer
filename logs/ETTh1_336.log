@@ -1,0 +1,55 @@
+Args in experiment:
+Namespace(model='former', data='ETTh1', root_path='./datasets/', data_path='ETTh1.csv', data_split=[8640, 2880, 2880], checkpoints='./checkpoints/', in_len=720, out_len=336, seg_lens='6,12,24,36,48,72', data_dim=7, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.2, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=1e-05, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : former_ETTh1_il720_ol336_sl6,12,24,36,48,72_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7585
+val 2545
+test 2545
+	iters: 100, epoch: 1 | loss: 0.5495633
+	speed: 0.7441s/iter; left time: 3468.0184s
+	iters: 200, epoch: 1 | loss: 0.4640309
+	speed: 0.7398s/iter; left time: 3374.2195s
+Epoch: 1 cost time: 174.92527151107788
+Epoch: 1, Steps: 238 | Train Loss: 0.5183146 Vali Loss: 1.1054637 Test Loss: 0.4493821
+Validation loss decreased (inf --> 1.105464).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.4433561
+	speed: 0.7784s/iter; left time: 3442.6782s
+	iters: 200, epoch: 2 | loss: 0.4358951
+	speed: 0.7186s/iter; left time: 3106.3764s
+Epoch: 2 cost time: 177.20519375801086
+Epoch: 2, Steps: 238 | Train Loss: 0.4407878 Vali Loss: 1.1020985 Test Loss: 0.4696592
+Validation loss decreased (1.105464 --> 1.102099).  Saving model ...
+Updating learning rate to 5e-06
+	iters: 100, epoch: 3 | loss: 0.3983579
+	speed: 0.7293s/iter; left time: 3052.3000s
+	iters: 200, epoch: 3 | loss: 0.3913494
+	speed: 0.7115s/iter; left time: 2906.4086s
+Epoch: 3 cost time: 174.45673179626465
+Epoch: 3, Steps: 238 | Train Loss: 0.4135835 Vali Loss: 1.0762397 Test Loss: 0.4578777
+Validation loss decreased (1.102099 --> 1.076240).  Saving model ...
+	iters: 100, epoch: 4 | loss: 0.4136698
+	speed: 0.8331s/iter; left time: 3288.3643s
+	iters: 200, epoch: 4 | loss: 0.3829374
+	speed: 0.7622s/iter; left time: 2932.2444s
+Epoch: 4 cost time: 192.65509676933289
+Epoch: 4, Steps: 238 | Train Loss: 0.3975066 Vali Loss: 1.0903515 Test Loss: 0.4917269
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.5e-06
+	iters: 100, epoch: 5 | loss: 0.3933453
+	speed: 0.7411s/iter; left time: 2748.8500s
+	iters: 200, epoch: 5 | loss: 0.3879745
+	speed: 0.7737s/iter; left time: 2792.2705s
+Epoch: 5 cost time: 180.67792510986328
+Epoch: 5, Steps: 238 | Train Loss: 0.3838835 Vali Loss: 1.0847157 Test Loss: 0.5092261
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 6 | loss: 0.4265588
+	speed: 0.7056s/iter; left time: 2449.2078s
+	iters: 200, epoch: 6 | loss: 0.3847103
+	speed: 0.7136s/iter; left time: 2405.5219s
+Epoch: 6 cost time: 167.35750555992126
+Epoch: 6, Steps: 238 | Train Loss: 0.3768791 Vali Loss: 1.0870693 Test Loss: 0.5106923
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : former_ETTh1_il720_ol336_sl6,12,24,36,48,72_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2545
+mse:0.4571678042411804, mae:0.4636453092098236

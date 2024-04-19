@@ -1,0 +1,40 @@
+Args in experiment:
+Namespace(model='iformer', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=180, seg_lens='12,8,6,4,3', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : iformer_m1999m_il360_ol180_sl12,8,6,4,3_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7524
+val 974
+test 2125
+	iters: 100, epoch: 1 | loss: 0.6027448
+	speed: 0.2146s/iter; left time: 991.4531s
+	iters: 200, epoch: 1 | loss: 0.4131058
+	speed: 0.1826s/iter; left time: 825.4633s
+Epoch: 1 cost time: 46.94812846183777
+Epoch: 1, Steps: 236 | Train Loss: 0.5488530 Vali Loss: 0.3609065 Test Loss: 0.8166096
+Validation loss decreased (inf --> 0.360906).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.3796290
+	speed: 0.1812s/iter; left time: 794.5190s
+	iters: 200, epoch: 2 | loss: 0.5015457
+	speed: 0.1728s/iter; left time: 740.6192s
+Epoch: 2 cost time: 42.86686182022095
+Epoch: 2, Steps: 236 | Train Loss: 0.4409174 Vali Loss: 0.6352309 Test Loss: 1.5180502
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.3665948
+	speed: 0.1745s/iter; left time: 723.8115s
+	iters: 200, epoch: 3 | loss: 0.3604443
+	speed: 0.1842s/iter; left time: 745.6378s
+Epoch: 3 cost time: 42.35652160644531
+Epoch: 3, Steps: 236 | Train Loss: 0.3670292 Vali Loss: 0.5448607 Test Loss: 1.4654723
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 4 | loss: 0.2491708
+	speed: 0.1773s/iter; left time: 693.8926s
+	iters: 200, epoch: 4 | loss: 0.3449165
+	speed: 0.1604s/iter; left time: 611.7864s
+Epoch: 4 cost time: 39.973894119262695
+Epoch: 4, Steps: 236 | Train Loss: 0.3417173 Vali Loss: 0.5688436 Test Loss: 1.3129851
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : iformer_m1999m_il360_ol180_sl12,8,6,4,3_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2125
+mse:0.8063293099403381, mae:0.7144235372543335

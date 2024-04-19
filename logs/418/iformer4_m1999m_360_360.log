@@ -1,0 +1,63 @@
+Args in experiment:
+Namespace(model='iformer', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=360, seg_lens='12,8,6,4,3', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, fc_dropout=0.05, head_dropout=0.0, patch_len=12, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=1e-05, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : iformer_m1999m_il360_ol360_sl12,8,6,4,3_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7344
+val 794
+test 1945
+	iters: 100, epoch: 1 | loss: 0.7007363
+	speed: 0.3176s/iter; left time: 1429.6374s
+	iters: 200, epoch: 1 | loss: 0.5257887
+	speed: 0.2140s/iter; left time: 941.9178s
+Epoch: 1 cost time: 59.76996564865112
+Epoch: 1, Steps: 230 | Train Loss: 0.7721585 Vali Loss: 0.6513786 Test Loss: 2.1854430
+Validation loss decreased (inf --> 0.651379).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.6738508
+	speed: 0.2261s/iter; left time: 965.8075s
+	iters: 200, epoch: 2 | loss: 0.5370425
+	speed: 0.2177s/iter; left time: 908.0098s
+Epoch: 2 cost time: 51.176730155944824
+Epoch: 2, Steps: 230 | Train Loss: 0.6281959 Vali Loss: 0.3900483 Test Loss: 1.0760821
+Validation loss decreased (0.651379 --> 0.390048).  Saving model ...
+Updating learning rate to 5e-06
+	iters: 100, epoch: 3 | loss: 0.5228974
+	speed: 0.2397s/iter; left time: 968.4339s
+	iters: 200, epoch: 3 | loss: 0.6893441
+	speed: 0.2434s/iter; left time: 959.1500s
+Epoch: 3 cost time: 56.15694451332092
+Epoch: 3, Steps: 230 | Train Loss: 0.5907101 Vali Loss: 0.3753356 Test Loss: 0.9064742
+Validation loss decreased (0.390048 --> 0.375336).  Saving model ...
+	iters: 100, epoch: 4 | loss: 0.6018475
+	speed: 0.2398s/iter; left time: 914.0199s
+	iters: 200, epoch: 4 | loss: 0.5989203
+	speed: 0.2541s/iter; left time: 943.1210s
+Epoch: 4 cost time: 58.29637026786804
+Epoch: 4, Steps: 230 | Train Loss: 0.5774537 Vali Loss: 0.3725293 Test Loss: 0.8185021
+Validation loss decreased (0.375336 --> 0.372529).  Saving model ...
+Updating learning rate to 2.5e-06
+	iters: 100, epoch: 5 | loss: 0.7128815
+	speed: 0.2456s/iter; left time: 879.5259s
+	iters: 200, epoch: 5 | loss: 0.5726421
+	speed: 0.2585s/iter; left time: 900.0061s
+Epoch: 5 cost time: 58.26958084106445
+Epoch: 5, Steps: 230 | Train Loss: 0.5663966 Vali Loss: 0.3857349 Test Loss: 0.7807689
+EarlyStopping counter: 1 out of 3
+	iters: 100, epoch: 6 | loss: 0.5572293
+	speed: 0.2457s/iter; left time: 823.2946s
+	iters: 200, epoch: 6 | loss: 0.6474358
+	speed: 0.2607s/iter; left time: 847.3946s
+Epoch: 6 cost time: 56.965455055236816
+Epoch: 6, Steps: 230 | Train Loss: 0.5588842 Vali Loss: 0.3854495 Test Loss: 0.7821377
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.25e-06
+	iters: 100, epoch: 7 | loss: 0.4555242
+	speed: 0.2564s/iter; left time: 800.2512s
+	iters: 200, epoch: 7 | loss: 0.4621556
+	speed: 0.2799s/iter; left time: 845.4744s
+Epoch: 7 cost time: 62.36860156059265
+Epoch: 7, Steps: 230 | Train Loss: 0.5530589 Vali Loss: 0.3865965 Test Loss: 0.7572815
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : iformer_m1999m_il360_ol360_sl12,8,6,4,3_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 1945
+mse:0.8162549138069153, mae:0.7369673848152161

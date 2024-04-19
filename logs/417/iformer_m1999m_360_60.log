@@ -1,0 +1,70 @@
+Args in experiment:
+Namespace(model='iformer', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=60, seg_lens='60,36,24,18,12,6', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, fc_dropout=0.05, head_dropout=0.0, patch_len=12, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : iformer_m1999m_il360_ol60_sl60,36,24,18,12,6_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7644
+val 1094
+test 2245
+	iters: 100, epoch: 1 | loss: 0.4815927
+	speed: 0.4971s/iter; left time: 2327.0212s
+	iters: 200, epoch: 1 | loss: 0.4068090
+	speed: 0.4305s/iter; left time: 1971.9264s
+Epoch: 1 cost time: 111.20512914657593
+Epoch: 1, Steps: 239 | Train Loss: 0.5282619 Vali Loss: 0.3176475 Test Loss: 0.7002712
+Validation loss decreased (inf --> 0.317648).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.4396544
+	speed: 0.3970s/iter; left time: 1763.3132s
+	iters: 200, epoch: 2 | loss: 0.4015141
+	speed: 0.4243s/iter; left time: 1842.4525s
+Epoch: 2 cost time: 99.10535717010498
+Epoch: 2, Steps: 239 | Train Loss: 0.4164955 Vali Loss: 0.3154569 Test Loss: 0.4679683
+Validation loss decreased (0.317648 --> 0.315457).  Saving model ...
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.4202494
+	speed: 0.4049s/iter; left time: 1701.7275s
+	iters: 200, epoch: 3 | loss: 0.4375206
+	speed: 0.4105s/iter; left time: 1684.3001s
+Epoch: 3 cost time: 99.92952036857605
+Epoch: 3, Steps: 239 | Train Loss: 0.3838493 Vali Loss: 0.2912136 Test Loss: 0.5209362
+Validation loss decreased (0.315457 --> 0.291214).  Saving model ...
+	iters: 100, epoch: 4 | loss: 0.3409738
+	speed: 0.4092s/iter; left time: 1622.0167s
+	iters: 200, epoch: 4 | loss: 0.3220616
+	speed: 0.4126s/iter; left time: 1594.4506s
+Epoch: 4 cost time: 100.89702916145325
+Epoch: 4, Steps: 239 | Train Loss: 0.3704740 Vali Loss: 0.3004622 Test Loss: 0.5267477
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.5e-05
+	iters: 100, epoch: 5 | loss: 0.2682753
+	speed: 0.3955s/iter; left time: 1473.2449s
+	iters: 200, epoch: 5 | loss: 0.4052313
+	speed: 0.3996s/iter; left time: 1448.5370s
+Epoch: 5 cost time: 94.70679497718811
+Epoch: 5, Steps: 239 | Train Loss: 0.3549000 Vali Loss: 0.2845495 Test Loss: 0.6148983
+Validation loss decreased (0.291214 --> 0.284550).  Saving model ...
+	iters: 100, epoch: 6 | loss: 0.4327688
+	speed: 0.4044s/iter; left time: 1409.9071s
+	iters: 200, epoch: 6 | loss: 0.3231165
+	speed: 0.4110s/iter; left time: 1391.6033s
+Epoch: 6 cost time: 97.08116865158081
+Epoch: 6, Steps: 239 | Train Loss: 0.3475730 Vali Loss: 0.3147729 Test Loss: 0.6714687
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 1.25e-05
+	iters: 100, epoch: 7 | loss: 0.3643722
+	speed: 0.3878s/iter; left time: 1259.1783s
+	iters: 200, epoch: 7 | loss: 0.3953061
+	speed: 0.4405s/iter; left time: 1386.1379s
+Epoch: 7 cost time: 99.53830766677856
+Epoch: 7, Steps: 239 | Train Loss: 0.3370206 Vali Loss: 0.3063634 Test Loss: 0.7104338
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 8 | loss: 0.3271548
+	speed: 0.3692s/iter; left time: 1110.4376s
+	iters: 200, epoch: 8 | loss: 0.2999977
+	speed: 0.4037s/iter; left time: 1174.0047s
+Epoch: 8 cost time: 93.23167085647583
+Epoch: 8, Steps: 239 | Train Loss: 0.3309851 Vali Loss: 0.3165201 Test Loss: 0.8865952
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : iformer_m1999m_il360_ol60_sl60,36,24,18,12,6_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2245
+mse:0.5790150761604309, mae:0.569759726524353

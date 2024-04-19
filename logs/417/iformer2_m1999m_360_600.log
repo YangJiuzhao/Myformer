@@ -1,0 +1,78 @@
+Args in experiment:
+Namespace(model='iformer', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=600, seg_lens='12,8,6,4,3', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=1e-05, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : iformer_m1999m_il360_ol600_sl12,8,6,4,3_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7104
+val 554
+test 1705
+	iters: 100, epoch: 1 | loss: 0.7426564
+	speed: 0.2138s/iter; left time: 928.1476s
+	iters: 200, epoch: 1 | loss: 0.5808762
+	speed: 0.2906s/iter; left time: 1232.2651s
+Epoch: 1 cost time: 56.91631078720093
+Epoch: 1, Steps: 222 | Train Loss: 0.7864845 Vali Loss: 0.3981522 Test Loss: 1.1264698
+Validation loss decreased (inf --> 0.398152).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.5939996
+	speed: 0.2740s/iter; left time: 1128.6049s
+	iters: 200, epoch: 2 | loss: 0.6231924
+	speed: 0.2897s/iter; left time: 1164.1899s
+Epoch: 2 cost time: 62.3007915019989
+Epoch: 2, Steps: 222 | Train Loss: 0.6315574 Vali Loss: 0.4376719 Test Loss: 0.8679286
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-06
+	iters: 100, epoch: 3 | loss: 0.5467425
+	speed: 0.2184s/iter; left time: 850.9468s
+	iters: 200, epoch: 3 | loss: 0.6958496
+	speed: 0.2258s/iter; left time: 857.5320s
+Epoch: 3 cost time: 48.35987448692322
+Epoch: 3, Steps: 222 | Train Loss: 0.6078350 Vali Loss: 0.4037993 Test Loss: 0.9781097
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 4 | loss: 0.6521689
+	speed: 0.2689s/iter; left time: 988.0860s
+	iters: 200, epoch: 4 | loss: 0.5753247
+	speed: 0.2945s/iter; left time: 1052.8516s
+Epoch: 4 cost time: 62.24215006828308
+Epoch: 4, Steps: 222 | Train Loss: 0.5948978 Vali Loss: 0.3789218 Test Loss: 1.1139132
+Validation loss decreased (0.398152 --> 0.378922).  Saving model ...
+Updating learning rate to 2.5e-06
+	iters: 100, epoch: 5 | loss: 0.5642627
+	speed: 0.2911s/iter; left time: 1005.2700s
+	iters: 200, epoch: 5 | loss: 0.5897906
+	speed: 0.2862s/iter; left time: 959.6406s
+Epoch: 5 cost time: 62.75659942626953
+Epoch: 5, Steps: 222 | Train Loss: 0.5831686 Vali Loss: 0.3722797 Test Loss: 1.2650069
+Validation loss decreased (0.378922 --> 0.372280).  Saving model ...
+	iters: 100, epoch: 6 | loss: 0.5349072
+	speed: 0.2222s/iter; left time: 717.9768s
+	iters: 200, epoch: 6 | loss: 0.5111450
+	speed: 0.2358s/iter; left time: 738.3222s
+Epoch: 6 cost time: 50.75490069389343
+Epoch: 6, Steps: 222 | Train Loss: 0.5742118 Vali Loss: 0.3663345 Test Loss: 1.3971964
+Validation loss decreased (0.372280 --> 0.366334).  Saving model ...
+Updating learning rate to 1.25e-06
+	iters: 100, epoch: 7 | loss: 0.5795148
+	speed: 0.2688s/iter; left time: 808.7178s
+	iters: 200, epoch: 7 | loss: 0.5485534
+	speed: 0.3065s/iter; left time: 891.5136s
+Epoch: 7 cost time: 63.33773374557495
+Epoch: 7, Steps: 222 | Train Loss: 0.5668217 Vali Loss: 0.3779939 Test Loss: 1.5101084
+EarlyStopping counter: 1 out of 3
+	iters: 100, epoch: 8 | loss: 0.5771914
+	speed: 0.2977s/iter; left time: 829.7963s
+	iters: 200, epoch: 8 | loss: 0.6327966
+	speed: 0.2911s/iter; left time: 782.3181s
+Epoch: 8 cost time: 65.25108480453491
+Epoch: 8, Steps: 222 | Train Loss: 0.5618926 Vali Loss: 0.3829585 Test Loss: 1.6105686
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 6.25e-07
+	iters: 100, epoch: 9 | loss: 0.5905445
+	speed: 0.2332s/iter; left time: 598.1314s
+	iters: 200, epoch: 9 | loss: 0.5059603
+	speed: 0.2364s/iter; left time: 582.7567s
+Epoch: 9 cost time: 53.20873975753784
+Epoch: 9, Steps: 222 | Train Loss: 0.5577962 Vali Loss: 0.3905126 Test Loss: 1.5993515
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : iformer_m1999m_il360_ol600_sl12,8,6,4,3_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 1705
+mse:1.3877806663513184, mae:0.9783178567886353

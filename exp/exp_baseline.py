@@ -21,19 +21,26 @@ import pickle
 import warnings
 warnings.filterwarnings('ignore')
 
-class Exp_lstm(Exp_Basic):
+class Exp_baseline(Exp_Basic):
     def __init__(self, args):
-        super(Exp_lstm, self).__init__(args)
+        super(Exp_baseline, self).__init__(args)
     
     def _build_model(self):        
-        model = LSTM(input_size=self.args.data_dim,
-                     hidden_size=self.args.d_model,
-                     num_layers=self.args.a_layers,
-                     output_size=self.args.out_len,
-                     batch_size=self.args.batch_size,
-                     device=self.device
-                     )
-        
+        if self.args.model == 'lstm':
+            model = LSTM(input_size=self.args.data_dim,
+                        hidden_size=self.args.d_model,
+                        num_layers=self.args.a_layers,
+                        output_size=self.args.out_len,
+                        batch_size=self.args.batch_size,
+                        device=self.device
+                        )
+        elif self.args.model == 'patchtst':
+            from models.PatchTST import Model # type: ignore
+            model = Model(self.args)
+        elif self.args.model == 'dlinear':
+            from models.DLinear import Model # type: ignore
+            model = Model(self.args)
+
         if self.args.use_multi_gpu and self.args.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)
         return model

@@ -48,46 +48,19 @@ class Model(nn.Module):
         kernel_size = 25
         self.decompsition = series_decomp(kernel_size)
         
-        self.Former_Seasonal = nn.ModuleList()
-        self.Former_Trend = nn.ModuleList()
-        
-        for i in range(self.args.n_layers):
-            self.Former_Seasonal.append(former(
-            self.args.data_dim, 
-            self.args.in_len, 
-            self.args.out_len,
-            self.args.seg_lens,
-            self.args.factor,
-            self.args.d_model, 
-            self.args.d_ff,
-            self.args.n_heads, 
-            self.args.a_depth,
-            self.args.dropout, 
-            self.args.baseline,
-            self.device
-        ))
-            self.Former_Trend.append(former(
-            self.args.data_dim, 
-            self.args.in_len, 
-            self.args.out_len,
-            self.args.seg_lens,
-            self.args.factor,
-            self.args.d_model, 
-            self.args.d_ff,
-            self.args.n_heads, 
-            self.args.a_depth,
-            self.args.dropout, 
-            self.args.baseline,
-            self.device
-        ))
+        self.Former_Seasonal = former(self.args.data_dim, self.args.in_len, self.args.out_len, self.args.seg_lens, 
+                self.args.d_model, self.args.d_ff, self.args.n_heads, self.args.a_layers, 
+                self.args.dropout, self.device)
+        self.Former_Trend = former(self.args.data_dim, self.args.in_len, self.args.out_len, self.args.seg_lens, 
+                self.args.d_model, self.args.d_ff, self.args.n_heads, self.args.a_layers, 
+                self.args.dropout, self.device)
 
     def forward(self, x):
         # x: [Batch, Input length, Channel]
         seasonal_init, trend_init = self.decompsition(x)
         
-        for fs,ft in zip(self.Former_Seasonal,self.Former_Trend):
-            seasonal_output = fs(seasonal_init)
-            trend_output = ft(trend_init)
+        seasonal_output = self.Former_Seasonal(seasonal_init)
+        trend_output = self.Former_Trend(trend_init)
 
         x = seasonal_output + trend_output
         return x  # to [Batch, Output length, Channel]

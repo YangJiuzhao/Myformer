@@ -20,15 +20,15 @@ class former(nn.Module):
         self.patch_num = len(seg_lens)
         self.device = device
         # Attention
-        self.inner_attentions = nn.ModuleList()
-        for i in range(self.patch_num):
-            self.inner_attentions.append(
-                MultiAttentionLayer(
-                    d_model=d_model, 
-                    n_heads=n_heads, 
-                    d_ff=d_ff, 
-                    dropout=dropout)
-            )
+        # self.inner_attentions = nn.ModuleList()
+        # for i in range(self.patch_num):#a_layers):
+        #     self.inner_attentions.append(
+        #         MultiAttentionLayer(
+        #             d_model=d_model, 
+        #             n_heads=n_heads, 
+        #             d_ff=d_ff, 
+        #             dropout=dropout)
+        #     )
 
         self.outer_attentions = nn.ModuleList()
         for i in range(a_layers):
@@ -75,7 +75,10 @@ class former(nn.Module):
             x_temp += self.enc_pos_embedding[i]
             x_temp = pre_norm(x_temp)
 
-            x_temp = x_temp + self.inner_attentions[i](x_temp)
+            # x_temp = self.inner_attentions[i](x_temp)
+
+            for attention in self.outer_attentions:
+                x_temp = attention(x_temp)
 
             if i == 0:
                 x = x_temp
@@ -83,7 +86,7 @@ class former(nn.Module):
                 x = torch.cat((x, x_temp),dim=2)
 
         for attention in self.outer_attentions:
-            x = x + attention(x)
+            x = attention(x)
         x = rearrange(x,'b d s dd -> b d (s dd)')
 
         final_y = self.Predict(x)

@@ -1,0 +1,78 @@
+Args in experiment:
+Namespace(model='former', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=480, seg_lens='30,45,60,90,120', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=1e-05, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : former_m1999m_il360_ol480_sl30,45,60,90,120_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7224
+val 674
+test 1825
+	iters: 100, epoch: 1 | loss: 0.7547624
+	speed: 0.2407s/iter; left time: 1064.0215s
+	iters: 200, epoch: 1 | loss: 0.5662627
+	speed: 0.2036s/iter; left time: 879.6735s
+Epoch: 1 cost time: 49.97583365440369
+Epoch: 1, Steps: 226 | Train Loss: 0.7836839 Vali Loss: 0.4154980 Test Loss: 1.5401470
+Validation loss decreased (inf --> 0.415498).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.5897508
+	speed: 0.2207s/iter; left time: 925.9001s
+	iters: 200, epoch: 2 | loss: 0.7108310
+	speed: 0.2102s/iter; left time: 860.8220s
+Epoch: 2 cost time: 48.07286787033081
+Epoch: 2, Steps: 226 | Train Loss: 0.6428121 Vali Loss: 0.3749327 Test Loss: 1.0409709
+Validation loss decreased (0.415498 --> 0.374933).  Saving model ...
+Updating learning rate to 5e-06
+	iters: 100, epoch: 3 | loss: 0.4873926
+	speed: 0.2211s/iter; left time: 877.7189s
+	iters: 200, epoch: 3 | loss: 0.5717649
+	speed: 0.2309s/iter; left time: 893.3442s
+Epoch: 3 cost time: 50.24397349357605
+Epoch: 3, Steps: 226 | Train Loss: 0.6079314 Vali Loss: 0.3723802 Test Loss: 1.0397653
+Validation loss decreased (0.374933 --> 0.372380).  Saving model ...
+	iters: 100, epoch: 4 | loss: 0.5885300
+	speed: 0.2303s/iter; left time: 861.9915s
+	iters: 200, epoch: 4 | loss: 0.5705850
+	speed: 0.1870s/iter; left time: 681.4226s
+Epoch: 4 cost time: 47.96390151977539
+Epoch: 4, Steps: 226 | Train Loss: 0.5803806 Vali Loss: 0.3726751 Test Loss: 1.1064886
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.5e-06
+	iters: 100, epoch: 5 | loss: 0.5919859
+	speed: 0.2671s/iter; left time: 939.5177s
+	iters: 200, epoch: 5 | loss: 0.6375571
+	speed: 0.2494s/iter; left time: 852.3343s
+Epoch: 5 cost time: 57.842042446136475
+Epoch: 5, Steps: 226 | Train Loss: 0.5628222 Vali Loss: 0.3666743 Test Loss: 1.1199942
+Validation loss decreased (0.372380 --> 0.366674).  Saving model ...
+	iters: 100, epoch: 6 | loss: 0.4882723
+	speed: 0.2603s/iter; left time: 856.7211s
+	iters: 200, epoch: 6 | loss: 0.4609687
+	speed: 0.2545s/iter; left time: 812.0379s
+Epoch: 6 cost time: 57.542866945266724
+Epoch: 6, Steps: 226 | Train Loss: 0.5535091 Vali Loss: 0.3577517 Test Loss: 1.1497739
+Validation loss decreased (0.366674 --> 0.357752).  Saving model ...
+Updating learning rate to 1.25e-06
+	iters: 100, epoch: 7 | loss: 0.5227556
+	speed: 0.2361s/iter; left time: 723.5426s
+	iters: 200, epoch: 7 | loss: 0.5284671
+	speed: 0.2075s/iter; left time: 615.2174s
+Epoch: 7 cost time: 50.155163049697876
+Epoch: 7, Steps: 226 | Train Loss: 0.5459240 Vali Loss: 0.3649507 Test Loss: 1.1395681
+EarlyStopping counter: 1 out of 3
+	iters: 100, epoch: 8 | loss: 0.5857213
+	speed: 0.2375s/iter; left time: 674.2470s
+	iters: 200, epoch: 8 | loss: 0.6410632
+	speed: 0.2177s/iter; left time: 596.1906s
+Epoch: 8 cost time: 52.411118268966675
+Epoch: 8, Steps: 226 | Train Loss: 0.5419388 Vali Loss: 0.3678460 Test Loss: 1.1653402
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 6.25e-07
+	iters: 100, epoch: 9 | loss: 0.6339365
+	speed: 0.2098s/iter; left time: 548.2566s
+	iters: 200, epoch: 9 | loss: 0.4325646
+	speed: 0.2184s/iter; left time: 548.7620s
+Epoch: 9 cost time: 48.31949472427368
+Epoch: 9, Steps: 226 | Train Loss: 0.5384223 Vali Loss: 0.3744896 Test Loss: 1.1569796
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : former_m1999m_il360_ol480_sl30,45,60,90,120_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 1825
+mse:1.1385960578918457, mae:0.8818669319152832

@@ -1,0 +1,40 @@
+Args in experiment:
+Namespace(model='lstm', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=30, seg_lens='6', dim_factor=10, patch_factor=10, data_dim=5, d_model=512, d_ff=1024, n_heads=4, a_layers=4, dropout=0.2, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=0.001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : lstm_m1999m_il360_ol30_sl6_dm512_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7674
+val 1124
+test 2275
+	iters: 100, epoch: 1 | loss: 0.3089740
+	speed: 0.2072s/iter; left time: 973.8643s
+	iters: 200, epoch: 1 | loss: 0.5168510
+	speed: 0.1892s/iter; left time: 870.3805s
+Epoch: 1 cost time: 46.740172386169434
+Epoch: 1, Steps: 240 | Train Loss: 0.4368276 Vali Loss: 0.2711637 Test Loss: 0.7494405
+Validation loss decreased (inf --> 0.271164).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.3988674
+	speed: 0.1871s/iter; left time: 834.6138s
+	iters: 200, epoch: 2 | loss: 0.2909520
+	speed: 0.1963s/iter; left time: 856.0322s
+Epoch: 2 cost time: 45.541850090026855
+Epoch: 2, Steps: 240 | Train Loss: 0.3340419 Vali Loss: 0.3339177 Test Loss: 1.1846166
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0005
+	iters: 100, epoch: 3 | loss: 0.3880593
+	speed: 0.1753s/iter; left time: 739.8845s
+	iters: 200, epoch: 3 | loss: 0.2703257
+	speed: 0.1588s/iter; left time: 654.2460s
+Epoch: 3 cost time: 39.73620796203613
+Epoch: 3, Steps: 240 | Train Loss: 0.3025487 Vali Loss: 0.2876054 Test Loss: 1.0615141
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 4 | loss: 0.2481573
+	speed: 0.1612s/iter; left time: 641.6661s
+	iters: 200, epoch: 4 | loss: 0.3223955
+	speed: 0.1635s/iter; left time: 634.6236s
+Epoch: 4 cost time: 39.53816890716553
+Epoch: 4, Steps: 240 | Train Loss: 0.2895056 Vali Loss: 0.3093638 Test Loss: 1.3003760
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : lstm_m1999m_il360_ol30_sl6_dm512_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2275
+mse:0.7263948321342468, mae:0.64276123046875

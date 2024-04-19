@@ -1,0 +1,31 @@
+Args in experiment:
+Namespace(model='iformer', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=90, seg_lens='60,36,24,12,8,4', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, fc_dropout=0.05, head_dropout=0.0, patch_len=12, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=100, patience=5, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : iformer_m1999m_il360_ol90_sl60,36,24,12,8,4_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7614
+val 1064
+test 2215
+	iters: 100, epoch: 1 | loss: 0.4381198
+	speed: 0.3550s/iter; left time: 8414.5975s
+	iters: 200, epoch: 1 | loss: 0.3787904
+	speed: 0.3045s/iter; left time: 7186.8481s
+Epoch: 1 cost time: 77.56195330619812
+Epoch: 1, Steps: 238 | Train Loss: 0.4552008 Vali Loss: 0.3726835 Test Loss: 1.2260281
+Validation loss decreased (inf --> 0.372683).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.3073201
+	speed: 0.3036s/iter; left time: 7122.9845s
+	iters: 200, epoch: 2 | loss: 0.3238835
+	speed: 0.2931s/iter; left time: 6848.4148s
+Epoch: 2 cost time: 71.76058864593506
+Epoch: 2, Steps: 238 | Train Loss: 0.3328111 Vali Loss: 0.5052677 Test Loss: 1.0266527
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.2824932
+	speed: 0.2941s/iter; left time: 6830.8512s
+	iters: 200, epoch: 3 | loss: 0.2488448
+	speed: 0.3032s/iter; left time: 7012.0627s
+Epoch: 3 cost time: 71.04279613494873
+Epoch: 3, Steps: 238 | Train Loss: 0.2875841 Vali Loss: 0.5325096 Test Loss: 0.9698298
+EarlyStopping counter: 2 out of 5
+	iters: 100, epoch: 4 | loss: 0.2032958
+	speed: 0.3012s/iter; left time: 6924.6657s

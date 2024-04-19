@@ -1,0 +1,78 @@
+Args in experiment:
+Namespace(model='iformer', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=360, seg_lens='12,8,6,4,3', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=4, dropout=0.4, baseline=False, num_workers=0, batch_size=32, train_epochs=20, patience=3, learning_rate=1e-05, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : iformer_m1999m_il360_ol360_sl12,8,6,4,3_dm256_nh4_el4_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7344
+val 794
+test 1945
+	iters: 100, epoch: 1 | loss: 0.8081434
+	speed: 0.2786s/iter; left time: 1253.9462s
+	iters: 200, epoch: 1 | loss: 0.6531893
+	speed: 0.2698s/iter; left time: 1187.4353s
+Epoch: 1 cost time: 62.476603984832764
+Epoch: 1, Steps: 230 | Train Loss: 0.7460330 Vali Loss: 0.3745444 Test Loss: 1.0237983
+Validation loss decreased (inf --> 0.374544).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.5554987
+	speed: 0.2709s/iter; left time: 1156.9508s
+	iters: 200, epoch: 2 | loss: 0.6655259
+	speed: 0.2699s/iter; left time: 1125.9460s
+Epoch: 2 cost time: 61.77464938163757
+Epoch: 2, Steps: 230 | Train Loss: 0.6047153 Vali Loss: 0.3888982 Test Loss: 0.8465914
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-06
+	iters: 100, epoch: 3 | loss: 0.6376371
+	speed: 0.2826s/iter; left time: 1142.1597s
+	iters: 200, epoch: 3 | loss: 0.5748388
+	speed: 0.2722s/iter; left time: 1072.7120s
+Epoch: 3 cost time: 62.959943771362305
+Epoch: 3, Steps: 230 | Train Loss: 0.5809523 Vali Loss: 0.3631290 Test Loss: 0.8277985
+Validation loss decreased (0.374544 --> 0.363129).  Saving model ...
+	iters: 100, epoch: 4 | loss: 0.5458513
+	speed: 0.2819s/iter; left time: 1074.1594s
+	iters: 200, epoch: 4 | loss: 0.6428072
+	speed: 0.3045s/iter; left time: 1129.9708s
+Epoch: 4 cost time: 67.93426322937012
+Epoch: 4, Steps: 230 | Train Loss: 0.5690042 Vali Loss: 0.3513756 Test Loss: 0.8320808
+Validation loss decreased (0.363129 --> 0.351376).  Saving model ...
+Updating learning rate to 2.5e-06
+	iters: 100, epoch: 5 | loss: 0.6058691
+	speed: 0.2905s/iter; left time: 1040.2593s
+	iters: 200, epoch: 5 | loss: 0.6356126
+	speed: 0.2796s/iter; left time: 973.1449s
+Epoch: 5 cost time: 64.27090072631836
+Epoch: 5, Steps: 230 | Train Loss: 0.5587409 Vali Loss: 0.3427722 Test Loss: 0.8456391
+Validation loss decreased (0.351376 --> 0.342772).  Saving model ...
+	iters: 100, epoch: 6 | loss: 0.5917649
+	speed: 0.2562s/iter; left time: 858.5322s
+	iters: 200, epoch: 6 | loss: 0.5941111
+	speed: 0.2673s/iter; left time: 869.0770s
+Epoch: 6 cost time: 58.66967964172363
+Epoch: 6, Steps: 230 | Train Loss: 0.5527749 Vali Loss: 0.3310032 Test Loss: 0.9175991
+Validation loss decreased (0.342772 --> 0.331003).  Saving model ...
+Updating learning rate to 1.25e-06
+	iters: 100, epoch: 7 | loss: 0.5640704
+	speed: 0.2345s/iter; left time: 731.8114s
+	iters: 200, epoch: 7 | loss: 0.5237535
+	speed: 0.2376s/iter; left time: 717.8140s
+Epoch: 7 cost time: 55.39720678329468
+Epoch: 7, Steps: 230 | Train Loss: 0.5469984 Vali Loss: 0.3383159 Test Loss: 0.8790623
+EarlyStopping counter: 1 out of 3
+	iters: 100, epoch: 8 | loss: 0.6424653
+	speed: 0.2350s/iter; left time: 679.3273s
+	iters: 200, epoch: 8 | loss: 0.5269685
+	speed: 0.2523s/iter; left time: 704.1844s
+Epoch: 8 cost time: 54.74665856361389
+Epoch: 8, Steps: 230 | Train Loss: 0.5432988 Vali Loss: 0.3328888 Test Loss: 0.9226834
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 6.25e-07
+	iters: 100, epoch: 9 | loss: 0.5762404
+	speed: 0.2009s/iter; left time: 534.5803s
+	iters: 200, epoch: 9 | loss: 0.4658684
+	speed: 0.2580s/iter; left time: 660.6722s
+Epoch: 9 cost time: 52.31894016265869
+Epoch: 9, Steps: 230 | Train Loss: 0.5397131 Vali Loss: 0.3379865 Test Loss: 0.9355455
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : iformer_m1999m_il360_ol360_sl12,8,6,4,3_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 1945
+mse:0.9156882166862488, mae:0.7757326364517212

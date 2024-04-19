@@ -1,0 +1,26 @@
+former：
+    test0：位置编码
+    test1：无patch内注意力
+    test2：每个patch内部进行patch内注意力，不相同
+    test3：每个patch接相同的N层patch内注意力
+    test4：patch内和patch外使用相同的N层注意力
+
+    test5：无patch间注意力 5-2 5-4
+    test6：无dim注意力
+
+iformer 
+    test1：无patch内注意力
+    test2：每个patch内部进行patch内注意力，不相同
+    test3：每个patch接相同的N层patch内注意力
+    test4：patch内和patch外使用相同的N层注意力
+    linear
+        每个patch分别linear
+            mean
+            add
+            cat+linear
+        cat+linear
+    pos
+        test5：无位置编码
+
+    test6：无patch间注意力
+    test7：无dim注意力
