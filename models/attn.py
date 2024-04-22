@@ -73,7 +73,7 @@ class MultiAttentionLayer(nn.Module):
         d_ff = d_ff or 4*d_model
         self.time_attention = AttentionLayer(d_model, n_heads, dropout = dropout)
         self.dim_attention = AttentionLayer(d_model, n_heads, dropout = dropout)
-        self.patch_attention = AttentionLayer(d_model, n_heads, dropout = dropout)
+        # self.patch_attention = AttentionLayer(d_model, n_heads, dropout = dropout)
         
         self.dropout = nn.Dropout(dropout)
 
@@ -81,8 +81,8 @@ class MultiAttentionLayer(nn.Module):
         self.norm2 = nn.LayerNorm(d_model)
         self.norm3 = nn.LayerNorm(d_model)
         self.norm4 = nn.LayerNorm(d_model)
-        self.norm5 = nn.LayerNorm(d_model)
-        self.norm6 = nn.LayerNorm(d_model)
+        # self.norm5 = nn.LayerNorm(d_model)
+        # self.norm6 = nn.LayerNorm(d_model)
 
         self.MLP1 = nn.Sequential(nn.Linear(d_model, d_ff),
                                 nn.GELU(),
@@ -90,9 +90,9 @@ class MultiAttentionLayer(nn.Module):
         self.MLP2 = nn.Sequential(nn.Linear(d_model, d_ff),
                                 nn.GELU(),
                                 nn.Linear(d_ff, d_model))
-        self.MLP3 = nn.Sequential(nn.Linear(d_model, d_ff),
-                                nn.GELU(),
-                                nn.Linear(d_ff, d_model))
+        # self.MLP3 = nn.Sequential(nn.Linear(d_model, d_ff),
+        #                         nn.GELU(),
+        #                         nn.Linear(d_ff, d_model))
 
     def forward(self, x):
         # x : batch patch_num dim_num seg_num d_model
@@ -112,6 +112,7 @@ class MultiAttentionLayer(nn.Module):
         dim_enc = self.norm3(dim_enc)
         dim_enc = dim_enc + self.dropout(self.MLP2(dim_enc))
         dim_enc = self.norm4(dim_enc)
+        # dim_enc = rearrange(dim_in, '(b d) s dd -> (b s) d dd', d = d)
 
         # Cross Patch Attention
         # patch_in = rearrange(dim_enc, '(b p s) d dd -> (b d s) p dd', p = p)

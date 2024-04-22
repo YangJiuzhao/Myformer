@@ -10,7 +10,7 @@ model_name=Informer
 
 root_path_name=~/yjz/Myformer/datasets/
 data_path_name=m1999m.csv
-test_id_name=mean
+test_id_name=add
 
 
 ############################predict length 30####################################
@@ -20,7 +20,7 @@ python -u main_former.py --data m1999m --model iformer \
 
 ############################predict length 60####################################
 python -u main_former.py --data m1999m --model iformer \
---in_len 360 --out_len 60 --seg_len 60,36,24,18,12,6 \s
+--in_len 360 --out_len 60 --seg_len 60,36,24,18,12,6 \
 --learning_rate 1e-4 --itr 1 --dropout 0.4 --gpu 1 >logs/418/iformer_$test_id_name'_m1999m_360_60.log'
 
 ############################predict length 90####################################

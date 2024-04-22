@@ -60,7 +60,7 @@ class iformer(nn.Module):
             self.pre_norms.append(nn.LayerNorm(d_model))
 
         # Predict
-        self.Predict = nn.Linear(d_model, out_len)
+        self.Predict = nn.Linear(self.total_patch_num*d_model, out_len)#
 
         
     def forward(self, x_seq):
@@ -89,12 +89,12 @@ class iformer(nn.Module):
         for attention in self.outer_attentions:
             x = attention(x)
             
-        # x = rearrange(x,'b d s dd -> b d (s dd)')
+        x = rearrange(x,'b d s dd -> b d (s dd)')
 
         final_y = self.Predict(x)
 
-        final_y = rearrange(final_y,'b d s out -> b d out s')
-        final_y = torch.mean(final_y , dim= 3)
+        # final_y = rearrange(final_y,'b d s out -> b d out s')
+        # final_y = torch.sum(final_y , dim= 3)
 
         predict = rearrange(final_y,'b d out -> b out d')
         

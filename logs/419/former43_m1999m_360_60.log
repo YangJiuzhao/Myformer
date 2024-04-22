@@ -50,3 +50,29 @@ Epoch: 6 cost time: 195.1462278366089
 Epoch: 6, Steps: 239 | Train Loss: 0.3495943 Vali Loss: 0.3346232 Test Loss: 0.5817677
 EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.25e-05
+	iters: 100, epoch: 7 | loss: 0.3842750
+	speed: 0.7882s/iter; left time: 17630.6677s
+	iters: 200, epoch: 7 | loss: 0.3311114
+	speed: 0.8038s/iter; left time: 17899.1018s
+Epoch: 7 cost time: 190.07563185691833
+Epoch: 7, Steps: 239 | Train Loss: 0.3410783 Vali Loss: 0.3465083 Test Loss: 0.5617736
+EarlyStopping counter: 3 out of 5
+	iters: 100, epoch: 8 | loss: 0.2934417
+	speed: 0.8077s/iter; left time: 17873.5304s
+	iters: 200, epoch: 8 | loss: 0.3106282
+	speed: 0.8151s/iter; left time: 17955.2685s
+Epoch: 8 cost time: 194.05598044395447
+Epoch: 8, Steps: 239 | Train Loss: 0.3368702 Vali Loss: 0.3954530 Test Loss: 0.5211711
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+	iters: 100, epoch: 9 | loss: 0.2841274
+	speed: 0.8255s/iter; left time: 18070.4613s
+	iters: 200, epoch: 9 | loss: 0.2089227
+	speed: 0.8177s/iter; left time: 17817.3204s
+Epoch: 9 cost time: 196.51613330841064
+Epoch: 9, Steps: 239 | Train Loss: 0.3328042 Vali Loss: 0.3791738 Test Loss: 0.5495677
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : former_m1999m_il360_ol60_sl6,10,15,20,30,60_dm256_nh4_el4_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2245
+mse:0.6257931590080261, mae:0.599330484867096

@@ -1,6 +1,7 @@
 from data.data_loader import Dataset_MTS
 from exp.exp_basic import Exp_Basic
 from models.LSTM import LSTM
+from models.Patchformer import Patchformer
 from models.former import former
 
 from models.iformer import iformer
@@ -39,6 +40,10 @@ class Exp_former(Exp_Basic):
                     self.args.dropout, self.device).float()
         elif self.args.model == 'sdformer':
             model = Model(self.args,self.device)
+        elif self.args.model == 'patchformer':
+            model = Patchformer(self.args.data_dim, self.args.in_len, self.args.out_len, self.args.seg_lens, 
+                    self.args.d_model, self.args.d_ff, self.args.n_heads, self.args.a_layers, 
+                    self.args.dropout, self.device).float()
 
         if self.args.use_multi_gpu and self.args.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)

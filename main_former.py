@@ -15,7 +15,7 @@ np.random.seed(fix_seed)
 parser = argparse.ArgumentParser(description='former')
 
 
-parser.add_argument('--model', type=str, default='iformer', help='model name:former,iformer,sdformer,lstm,patchtst')
+parser.add_argument('--model', type=str, default='patchformer', help='model name:former,iformer,sdformer,lstm,patchtst')
 parser.add_argument('--data', type=str, default='m1999m', help='data')
 parser.add_argument('--root_path', type=str, default='./datasets/', help='root path of the data file')
 parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')  
@@ -24,7 +24,7 @@ parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='l
 
 parser.add_argument('--in_len', type=int, default=360, help='input MTS length (T)')
 parser.add_argument('--out_len', type=int, default=30, help='output MTS length (\tau)')
-parser.add_argument('--seg_lens', type=str, default="64", help='segment length (L_seg)')
+parser.add_argument('--seg_lens', type=str, default="3,6,10,15,30", help='segment length (L_seg)')
 
 # parser.add_argument('--dim_factor', type=int, default=10, help='num of routers in Cross-Dimension Stage of TSA (c)')
 # parser.add_argument('--patch_factor', type=int, default=10, help='num of routers in Cross-Patch Stage of TSA (c)')
@@ -34,8 +34,8 @@ parser.add_argument('--d_model', type=int, default=256, help='dimension of hidde
 parser.add_argument('--d_ff', type=int, default=512, help='dimension of MLP in transformer')
 parser.add_argument('--n_heads', type=int, default=4, help='num of heads')
 # parser.add_argument('--n_layers', type=int, default=1, help='num of former layers (N)')
-parser.add_argument('--a_layers', type=int, default=4, help='num of attention layers (N)')
-parser.add_argument('--dropout', type=float, default=0.2, help='dropout')
+parser.add_argument('--a_layers', type=int, default=3, help='num of attention layers (N)')
+parser.add_argument('--dropout', type=float, default=0.4, help='dropout')
 
 parser.add_argument('--baseline', help='whether to run baseline for prediction', default=False)
 
@@ -82,8 +82,8 @@ parser.add_argument('--do_predict', action='store_true', help='whether to predic
 parser.add_argument('--num_workers', type=int, default=0, help='data loader num workers')
 parser.add_argument('--batch_size', type=int, default=32, help='batch size of train input data')
 parser.add_argument('--train_epochs', type=int, default=100, help='train epochs')
-parser.add_argument('--patience', type=int, default=5, help='early stopping patience')
-parser.add_argument('--learning_rate', type=float, default=1e-5, help='optimizer initial learning rate')
+parser.add_argument('--patience', type=int, default=3, help='early stopping patience')
+parser.add_argument('--learning_rate', type=float, default=1e-4, help='optimizer initial learning rate')
 parser.add_argument('--lradj', type=str, default='type1',help='adjust learning rate')
 parser.add_argument('--itr', type=int, default=1, help='experiments times')
 
