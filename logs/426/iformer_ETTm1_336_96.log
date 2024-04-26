@@ -1,0 +1,30 @@
+Args in experiment:
+Namespace(model='iformer', data='ETTm1', root_path='./datasets/', data_path='ETTm1.csv', data_split=[34560, 11520, 11520], checkpoints='./checkpoints/', in_len=336, out_len=96, seg_lens='64,32,24,12,8,6', data_dim=7, d_model=64, d_ff=128, n_heads=4, a_layers=3, dropout=0.4, baseline=False, fc_dropout=0.05, head_dropout=0.0, patch_len=64, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=100, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : iformer_ETTm1_il336_ol96_sl64,32,24,12,8,6_dm64_nh4_el3_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 34129
+val 11425
+test 11425
+	iters: 100, epoch: 1 | loss: 0.3166375
+	speed: 0.1471s/iter; left time: 15684.8134s
+	iters: 200, epoch: 1 | loss: 0.3870352
+	speed: 0.1287s/iter; left time: 13707.4728s
+	iters: 300, epoch: 1 | loss: 0.2816235
+	speed: 0.1252s/iter; left time: 13324.1043s
+	iters: 400, epoch: 1 | loss: 0.2966726
+	speed: 0.1085s/iter; left time: 11531.1998s
+	iters: 500, epoch: 1 | loss: 0.2647789
+	speed: 0.1140s/iter; left time: 12107.0516s
+	iters: 600, epoch: 1 | loss: 0.3127883
+	speed: 0.1211s/iter; left time: 12845.2326s
+	iters: 700, epoch: 1 | loss: 0.2935271
+	speed: 0.1188s/iter; left time: 12590.3939s
+	iters: 800, epoch: 1 | loss: 0.2226956
+	speed: 0.1188s/iter; left time: 12585.8117s
+	iters: 900, epoch: 1 | loss: 0.3135009
+	speed: 0.1287s/iter; left time: 13611.3017s
+	iters: 1000, epoch: 1 | loss: 0.2773363
+	speed: 0.1182s/iter; left time: 12498.2676s
+Epoch: 1 cost time: 130.77179718017578
+Epoch: 1, Steps: 1067 | Train Loss: 0.2979085 Vali Loss: 0.3834731 Test Loss: 0.3098879
+Validation loss decreased (inf --> 0.383473).  Saving model ...

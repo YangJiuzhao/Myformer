@@ -1,0 +1,63 @@
+Args in experiment:
+Namespace(model='patchtst', data='ETTh1', root_path='./datasets/', data_path='ETTh1.csv', data_split=[8640, 2880, 2880], checkpoints='./checkpoints/', in_len=336, out_len=336, seg_lens='64,32,16,8', data_dim=7, d_model=16, d_ff=128, n_heads=4, a_layers=3, dropout=0.3, baseline='True', fc_dropout=0.05, head_dropout=0.0, patch_len=12, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=100, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=1, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:1
+>>>>>>>start training : patchtst_ETTh1_il336_ol336_sl64,32,16,8_dm16_nh4_el3_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7969
+val 2545
+test 2545
+	iters: 100, epoch: 1 | loss: 0.5458372
+	speed: 0.0405s/iter; left time: 1008.4610s
+	iters: 200, epoch: 1 | loss: 0.5171419
+	speed: 0.0443s/iter; left time: 1097.8706s
+Epoch: 1 cost time: 9.088669776916504
+Epoch: 1, Steps: 250 | Train Loss: 0.5808225 Vali Loss: 1.1906129 Test Loss: 0.4616251
+Validation loss decreased (inf --> 1.190613).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.5231336
+	speed: 0.0448s/iter; left time: 1104.2151s
+	iters: 200, epoch: 2 | loss: 0.5556773
+	speed: 0.0431s/iter; left time: 1058.1125s
+Epoch: 2 cost time: 9.53194546699524
+Epoch: 2, Steps: 250 | Train Loss: 0.4961652 Vali Loss: 1.1642316 Test Loss: 0.4444790
+Validation loss decreased (1.190613 --> 1.164232).  Saving model ...
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.4238221
+	speed: 0.0143s/iter; left time: 349.5809s
+	iters: 200, epoch: 3 | loss: 0.4820619
+	speed: 0.0424s/iter; left time: 1030.2840s
+Epoch: 3 cost time: 6.261519432067871
+Epoch: 3, Steps: 250 | Train Loss: 0.4868491 Vali Loss: 1.1654202 Test Loss: 0.4412518
+EarlyStopping counter: 1 out of 3
+	iters: 100, epoch: 4 | loss: 0.4243034
+	speed: 0.0406s/iter; left time: 979.9636s
+	iters: 200, epoch: 4 | loss: 0.5415669
+	speed: 0.0401s/iter; left time: 963.8520s
+Epoch: 4 cost time: 9.03119421005249
+Epoch: 4, Steps: 250 | Train Loss: 0.4792794 Vali Loss: 1.1579738 Test Loss: 0.4381717
+Validation loss decreased (1.164232 --> 1.157974).  Saving model ...
+Updating learning rate to 2.5e-05
+	iters: 100, epoch: 5 | loss: 0.4502937
+	speed: 0.0384s/iter; left time: 918.1511s
+	iters: 200, epoch: 5 | loss: 0.4762754
+	speed: 0.0119s/iter; left time: 282.6915s
+Epoch: 5 cost time: 8.763763427734375
+Epoch: 5, Steps: 250 | Train Loss: 0.4764846 Vali Loss: 1.1654727 Test Loss: 0.4370293
+EarlyStopping counter: 1 out of 3
+	iters: 100, epoch: 6 | loss: 0.5027333
+	speed: 0.0435s/iter; left time: 1029.2712s
+	iters: 200, epoch: 6 | loss: 0.4539176
+	speed: 0.0407s/iter; left time: 959.6171s
+Epoch: 6 cost time: 10.356298208236694
+Epoch: 6, Steps: 250 | Train Loss: 0.4739498 Vali Loss: 1.1611045 Test Loss: 0.4362035
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.25e-05
+	iters: 100, epoch: 7 | loss: 0.4205850
+	speed: 0.0124s/iter; left time: 289.6655s
+	iters: 200, epoch: 7 | loss: 0.4975719
+	speed: 0.0400s/iter; left time: 932.7395s
+Epoch: 7 cost time: 5.871544122695923
+Epoch: 7, Steps: 250 | Train Loss: 0.4728325 Vali Loss: 1.1589420 Test Loss: 0.4361122
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : patchtst_ETTh1_il336_ol336_sl64,32,16,8_dm16_nh4_el3_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2545
+mse:0.4375000596046448, mae:0.43791595101356506

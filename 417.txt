@@ -24,3 +24,22 @@ iformer
 
     test6：无patch间注意力
     test7：无dim注意力
+
+
+
+位置编码初始化
+归一化
+batch norm
+
+层间预测残差链接
+残差链接中间加趋势分解
+
+
+table1：baseline对比的表
+table2：消融实验的表
+table3：不同粒度采样对比的表
+
+graph1：输入长度对比图
+graph2：预测结果与真实结果的对比图
+graph3：
+

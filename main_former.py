@@ -15,16 +15,16 @@ np.random.seed(fix_seed)
 parser = argparse.ArgumentParser(description='former')
 
 
-parser.add_argument('--model', type=str, default='patchformer', help='model name:former,iformer,sdformer,lstm,patchtst')
-parser.add_argument('--data', type=str, default='m1999m', help='data')
+parser.add_argument('--model', type=str, default='iformer', help='model name:former,iformer,sdformer,lstm,patchtst')
+parser.add_argument('--data', type=str, default='ETTm1', help='data') # m1999m
 parser.add_argument('--root_path', type=str, default='./datasets/', help='root path of the data file')
 parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')  
 parser.add_argument('--data_split', type=str, default='0.7,0.1,0.2',help='train/val/test split, can be ratio or number')
 parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location to store model checkpoints')
 
-parser.add_argument('--in_len', type=int, default=360, help='input MTS length (T)')
-parser.add_argument('--out_len', type=int, default=30, help='output MTS length (\tau)')
-parser.add_argument('--seg_lens', type=str, default="3,6,10,15,30", help='segment length (L_seg)')
+parser.add_argument('--in_len', type=int, default=336, help='input MTS length (T)')
+parser.add_argument('--out_len', type=int, default=96, help='output MTS length (\tau)')
+parser.add_argument('--seg_lens', type=str, default="64,32,16,8", help='segment length (L_seg)')#      
 
 # parser.add_argument('--dim_factor', type=int, default=10, help='num of routers in Cross-Dimension Stage of TSA (c)')
 # parser.add_argument('--patch_factor', type=int, default=10, help='num of routers in Cross-Patch Stage of TSA (c)')
@@ -35,14 +35,14 @@ parser.add_argument('--d_ff', type=int, default=512, help='dimension of MLP in t
 parser.add_argument('--n_heads', type=int, default=4, help='num of heads')
 # parser.add_argument('--n_layers', type=int, default=1, help='num of former layers (N)')
 parser.add_argument('--a_layers', type=int, default=3, help='num of attention layers (N)')
-parser.add_argument('--dropout', type=float, default=0.4, help='dropout')
+parser.add_argument('--dropout', type=float, default=0.2, help='dropout')
 
 parser.add_argument('--baseline', help='whether to run baseline for prediction', default=False)
 
 # PatchTST
 parser.add_argument('--fc_dropout', type=float, default=0.05, help='fully connected dropout')
 parser.add_argument('--head_dropout', type=float, default=0.0, help='head dropout')
-parser.add_argument('--patch_len', type=int, default=12, help='patch length')
+parser.add_argument('--patch_len', type=int, default=64, help='patch length')
 parser.add_argument('--stride', type=int, default=8, help='stride')
 parser.add_argument('--padding_patch', default='end', help='None: None; end: padding on the end')
 parser.add_argument('--revin', type=int, default=1, help='RevIN; True 1 False 0')
@@ -90,7 +90,7 @@ parser.add_argument('--itr', type=int, default=1, help='experiments times')
 parser.add_argument('--save_pred', action='store_true', help='whether to save the predicted future MTS', default=False)
 
 parser.add_argument('--use_gpu', type=bool, default=True, help='use gpu')
-parser.add_argument('--gpu', type=int, default=1, help='gpu')
+parser.add_argument('--gpu', type=int, default=0, help='gpu')
 parser.add_argument('--use_multi_gpu', action='store_true', help='use multiple gpus', default=False)
 parser.add_argument('--devices', type=str, default='0,1',help='device ids of multile gpus')
 

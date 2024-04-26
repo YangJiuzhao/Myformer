@@ -1,0 +1,40 @@
+Args in experiment:
+Namespace(model='former', data='m1999m', root_path='./datasets/', data_path='m1999m.csv', data_split=[0.7, 0.1, 0.2], checkpoints='./checkpoints/', in_len=360, out_len=180, seg_lens='30,45,60,90,120', data_dim=5, d_model=256, d_ff=512, n_heads=4, a_layers=3, dropout=0.4, baseline=False, fc_dropout=0.05, head_dropout=0.0, patch_len=64, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=100, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : former_m1999m_il360_ol180_sl30,45,60,90,120_dm256_nh4_el3_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7524
+val 974
+test 2125
+	iters: 100, epoch: 1 | loss: 0.6597591
+	speed: 0.3248s/iter; left time: 7633.4682s
+	iters: 200, epoch: 1 | loss: 0.5637523
+	speed: 0.2755s/iter; left time: 6446.6969s
+Epoch: 1 cost time: 70.02071905136108
+Epoch: 1, Steps: 236 | Train Loss: 0.5642196 Vali Loss: 1.2563628 Test Loss: 1.5071988
+Validation loss decreased (inf --> 1.256363).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.4898268
+	speed: 0.2755s/iter; left time: 6409.8691s
+	iters: 200, epoch: 2 | loss: 0.5192633
+	speed: 0.2845s/iter; left time: 6589.7307s
+Epoch: 2 cost time: 67.94934678077698
+Epoch: 2, Steps: 236 | Train Loss: 0.5020073 Vali Loss: 1.6370446 Test Loss: 1.9913134
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.3168947
+	speed: 0.2849s/iter; left time: 6561.6822s
+	iters: 200, epoch: 3 | loss: 0.4204748
+	speed: 0.3068s/iter; left time: 7034.1176s
+Epoch: 3 cost time: 70.10338592529297
+Epoch: 3, Steps: 236 | Train Loss: 0.4727154 Vali Loss: 1.6656668 Test Loss: 1.9329288
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 4 | loss: 0.6129730
+	speed: 0.2946s/iter; left time: 6714.3644s
+	iters: 200, epoch: 4 | loss: 0.3813520
+	speed: 0.3007s/iter; left time: 6823.1674s
+Epoch: 4 cost time: 71.07104063034058
+Epoch: 4, Steps: 236 | Train Loss: 0.4536127 Vali Loss: 1.3219390 Test Loss: 1.6924072
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : former_m1999m_il360_ol180_sl30,45,60,90,120_dm256_nh4_el3_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2125
+mse:1.5012789964675903, mae:0.7933328151702881

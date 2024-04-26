@@ -1,0 +1,70 @@
+Args in experiment:
+Namespace(model='iformer', data='ETTh1', root_path='./datasets/', data_path='ETTh1.csv', data_split=[8640, 2880, 2880], checkpoints='./checkpoints/', in_len=360, out_len=96, seg_lens='12,8,6,4,3', data_dim=7, d_model=256, d_ff=512, n_heads=4, a_layers=3, dropout=0.4, baseline=False, fc_dropout=0.05, head_dropout=0.0, patch_len=64, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=100, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : iformer_ETTh1_il360_ol96_sl12,8,6,4,3_dm256_nh4_el3_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 8185
+val 2785
+test 2785
+	iters: 100, epoch: 1 | loss: 0.5104701
+	speed: 0.5549s/iter; left time: 14150.2824s
+	iters: 200, epoch: 1 | loss: 0.4882655
+	speed: 0.5451s/iter; left time: 13845.9307s
+Epoch: 1 cost time: 141.23547887802124
+Epoch: 1, Steps: 256 | Train Loss: 0.4758989 Vali Loss: 0.8626322 Test Loss: 0.4965982
+Validation loss decreased (inf --> 0.862632).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.4182283
+	speed: 0.5395s/iter; left time: 13620.1700s
+	iters: 200, epoch: 2 | loss: 0.3873538
+	speed: 0.5492s/iter; left time: 13808.5914s
+Epoch: 2 cost time: 139.73434710502625
+Epoch: 2, Steps: 256 | Train Loss: 0.4337647 Vali Loss: 0.8437710 Test Loss: 0.4778205
+Validation loss decreased (0.862632 --> 0.843771).  Saving model ...
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.3357569
+	speed: 0.5670s/iter; left time: 14168.8991s
+	iters: 200, epoch: 3 | loss: 0.4072472
+	speed: 0.5627s/iter; left time: 14003.9772s
+Epoch: 3 cost time: 152.23099756240845
+Epoch: 3, Steps: 256 | Train Loss: 0.3749961 Vali Loss: 0.7603039 Test Loss: 0.4169948
+Validation loss decreased (0.843771 --> 0.760304).  Saving model ...
+	iters: 100, epoch: 4 | loss: 0.3328422
+	speed: 0.6997s/iter; left time: 17306.5384s
+	iters: 200, epoch: 4 | loss: 0.3248402
+	speed: 0.5555s/iter; left time: 13683.0186s
+Epoch: 4 cost time: 156.57020688056946
+Epoch: 4, Steps: 256 | Train Loss: 0.3498464 Vali Loss: 0.7783919 Test Loss: 0.4230159
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.5e-05
+	iters: 100, epoch: 5 | loss: 0.3316421
+	speed: 0.5464s/iter; left time: 13373.4824s
+	iters: 200, epoch: 5 | loss: 0.2817918
+	speed: 0.5742s/iter; left time: 13996.5767s
+Epoch: 5 cost time: 143.87929701805115
+Epoch: 5, Steps: 256 | Train Loss: 0.3175940 Vali Loss: 0.7476362 Test Loss: 0.4031258
+Validation loss decreased (0.760304 --> 0.747636).  Saving model ...
+	iters: 100, epoch: 6 | loss: 0.3278884
+	speed: 0.5553s/iter; left time: 13450.9349s
+	iters: 200, epoch: 6 | loss: 0.3598968
+	speed: 0.5790s/iter; left time: 13966.1023s
+Epoch: 6 cost time: 144.89637184143066
+Epoch: 6, Steps: 256 | Train Loss: 0.3040957 Vali Loss: 0.7600313 Test Loss: 0.4224036
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 1.25e-05
+	iters: 100, epoch: 7 | loss: 0.3413246
+	speed: 0.5506s/iter; left time: 13195.6462s
+	iters: 200, epoch: 7 | loss: 0.3019668
+	speed: 0.5599s/iter; left time: 13362.2883s
+Epoch: 7 cost time: 144.9276294708252
+Epoch: 7, Steps: 256 | Train Loss: 0.2883633 Vali Loss: 0.7531590 Test Loss: 0.4157251
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 8 | loss: 0.2955613
+	speed: 0.7739s/iter; left time: 18349.3067s
+	iters: 200, epoch: 8 | loss: 0.2669184
+	speed: 0.7242s/iter; left time: 17097.7880s
+Epoch: 8 cost time: 183.94101881980896
+Epoch: 8, Steps: 256 | Train Loss: 0.2824617 Vali Loss: 0.7760370 Test Loss: 0.4223035
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : iformer_ETTh1_il360_ol96_sl12,8,6,4,3_dm256_nh4_el3_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2785
+mse:0.402466356754303, mae:0.4179031252861023

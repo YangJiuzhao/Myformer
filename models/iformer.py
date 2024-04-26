@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange
 
+from models.Patchformer import moving_avg, positional_encoding
+from models.RevIN import RevIN
 from models.attn import MultiAttentionLayer
 from models.embedding import iPatch_embedding
 
@@ -16,29 +18,23 @@ class iformer(nn.Module):
         self.data_dim = data_dim
         self.in_len = in_len
         self.out_len = out_len
-        self.patch_nums = [int(patch_num) for patch_num in patch_nums.split(',')]
+        self.patch_nums = [in_len // int(patch_num) for patch_num in patch_nums.split(',')]
         self.patchs_num = len(patch_nums)
+        self.a_layers = a_layers
         self.device = device
 
-        # Attention
-        # self.inner_attentions = nn.ModuleList()
-        # for i in range(self.patchs_num):#a_layers):
-        #     self.inner_attentions.append(
-        #         MultiAttentionLayer(
-        #             d_model=d_model, 
-        #             n_heads=n_heads, 
-        #             d_ff=d_ff, 
-        #             dropout=dropout)
-        #     )
-
-        self.outer_attentions = nn.ModuleList()
+        self.revin = True
+        if self.revin: self.revin_layer = RevIN(data_dim, affine=True, subtract_last=False)
+        
+        self.attentions = nn.ModuleList()
         for i in range(a_layers):
-            self.outer_attentions.append(
+            self.attentions.append(
                 MultiAttentionLayer(
                     d_model=d_model, 
                     n_heads=n_heads, 
                     d_ff=d_ff, 
-                    dropout=dropout)
+                    dropout=dropout,
+                    norm='batch_norm')
             )
         
         self.enc_value_embeddings = nn.ModuleList()
@@ -57,13 +53,19 @@ class iformer(nn.Module):
             # Embedding
             self.enc_value_embeddings.append(iPatch_embedding(patch_len, d_model))
             self.enc_pos_embedding.append(nn.Parameter(torch.randn(1, data_dim, patch_num, d_model)).to(device))
+            # self.enc_pos_embedding.append(positional_encoding("zeros", True, patch_num, d_model).to(device))
             self.pre_norms.append(nn.LayerNorm(d_model))
 
         # Predict
         self.Predict = nn.Linear(self.total_patch_num*d_model, out_len)#
+        # self.moving_avg = moving_avg(25,1)
 
         
     def forward(self, x_seq):
+        # norm
+        if self.revin: 
+            x_seq = self.revin_layer(x_seq, 'norm')
+
         x = 0
         for i, embedding, pre_norm in zip(range(self.patchs_num),self.enc_value_embeddings,self.pre_norms):
 
@@ -76,26 +78,35 @@ class iformer(nn.Module):
             x_temp += self.enc_pos_embedding[i]
             x_temp = pre_norm(x_temp)
 
-            # x_temp = self.inner_attentions[i](x_temp)
-
-            # for attention in self.outer_attentions:
+            # for attention in self.attentions:
             #     x_temp = attention(x_temp)
 
             if i == 0:
                 x = x_temp
             else:
                 x = torch.cat((x, x_temp),dim=2)
+        
 
-        for attention in self.outer_attentions:
+        # final_y = self.Predict(rearrange(x,'b d s dd -> b d (s dd)'))
+        # final_y = self.moving_avg(final_y)
+        # i = 1
+        for attention in self.attentions:
             x = attention(x)
+            # if i < self.a_layers:
+            #     final_y = final_y + self.moving_avg(self.Predict(rearrange(x,'b d s dd -> b d (s dd)')))
+            # else:
+            #     final_y = final_y + self.Predict(rearrange(x,'b d s dd -> b d (s dd)'))
+            # i += 1
             
         x = rearrange(x,'b d s dd -> b d (s dd)')
 
         final_y = self.Predict(x)
 
-        # final_y = rearrange(final_y,'b d s out -> b d out s')
-        # final_y = torch.sum(final_y , dim= 3)
-
         predict = rearrange(final_y,'b d out -> b out d')
+
+
+        # denorm
+        if self.revin: 
+            predict = self.revin_layer(predict, 'denorm')
         
         return predict

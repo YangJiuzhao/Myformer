@@ -1,0 +1,40 @@
+Args in experiment:
+Namespace(model='iformer', data='ETTh1', root_path='./datasets/', data_path='ETTh1.csv', data_split=[8640, 2880, 2880], checkpoints='./checkpoints/', in_len=360, out_len=720, seg_lens='12,8,6,4,3', data_dim=7, d_model=256, d_ff=512, n_heads=4, a_layers=3, dropout=0.4, baseline=False, fc_dropout=0.05, head_dropout=0.0, patch_len=64, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, freq='m', embed_type=0, enc_in=7, dec_in=7, c_out=7, e_layers=2, d_layers=1, moving_avg=25, factor=1, distil=True, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=0, batch_size=32, train_epochs=100, patience=3, learning_rate=0.0001, lradj='type1', itr=1, save_pred=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1')
+Use GPU: cuda:0
+>>>>>>>start training : iformer_ETTh1_il360_ol720_sl12,8,6,4,3_dm256_nh4_el3_itr0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 7561
+val 2161
+test 2161
+	iters: 100, epoch: 1 | loss: 0.7285076
+	speed: 0.6091s/iter; left time: 14375.8648s
+	iters: 200, epoch: 1 | loss: 0.6768959
+	speed: 0.6067s/iter; left time: 14257.2796s
+Epoch: 1 cost time: 144.58417177200317
+Epoch: 1, Steps: 237 | Train Loss: 0.7015283 Vali Loss: 1.6404102 Test Loss: 0.5928670
+Validation loss decreased (inf --> 1.640410).  Saving model ...
+	iters: 100, epoch: 2 | loss: 0.5663175
+	speed: 0.6114s/iter; left time: 14284.6038s
+	iters: 200, epoch: 2 | loss: 0.5562130
+	speed: 0.6403s/iter; left time: 14895.2079s
+Epoch: 2 cost time: 147.81793808937073
+Epoch: 2, Steps: 237 | Train Loss: 0.5756163 Vali Loss: 1.8595991 Test Loss: 0.5868594
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.4763473
+	speed: 0.6252s/iter; left time: 14459.9651s
+	iters: 200, epoch: 3 | loss: 0.4288894
+	speed: 0.6056s/iter; left time: 13945.9283s
+Epoch: 3 cost time: 145.62119841575623
+Epoch: 3, Steps: 237 | Train Loss: 0.4698061 Vali Loss: 1.9007881 Test Loss: 0.5900836
+EarlyStopping counter: 2 out of 3
+	iters: 100, epoch: 4 | loss: 0.3935233
+	speed: 0.6242s/iter; left time: 14287.5795s
+	iters: 200, epoch: 4 | loss: 0.4105802
+	speed: 0.6058s/iter; left time: 13807.2369s
+Epoch: 4 cost time: 145.288489818573
+Epoch: 4, Steps: 237 | Train Loss: 0.4310048 Vali Loss: 1.8968404 Test Loss: 0.5851975
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : iformer_ETTh1_il360_ol720_sl12,8,6,4,3_dm256_nh4_el3_itr0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2161
+mse:0.591352641582489, mae:0.5337231159210205

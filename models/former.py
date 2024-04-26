@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange
 
+from models.RevIN import RevIN
 from models.attn import MultiAttentionLayer
 from models.embedding import Patch_embedding
 
@@ -19,25 +20,19 @@ class former(nn.Module):
         self.seg_lens = [int(seg_len) for seg_len in seg_lens.split(',')]
         self.patch_num = len(seg_lens)
         self.device = device
-        # Attention
-        # self.inner_attentions = nn.ModuleList()
-        # for i in range(self.patch_num):#a_layers):
-        #     self.inner_attentions.append(
-        #         MultiAttentionLayer(
-        #             d_model=d_model, 
-        #             n_heads=n_heads, 
-        #             d_ff=d_ff, 
-        #             dropout=dropout)
-        #     )
 
-        self.outer_attentions = nn.ModuleList()
+        self.revin = True
+        if self.revin: self.revin_layer = RevIN(data_dim, affine=True, subtract_last=False)
+
+        self.attentions = nn.ModuleList()
         for i in range(a_layers):
-            self.outer_attentions.append(
+            self.attentions.append(
                 MultiAttentionLayer(
                     d_model=d_model, 
                     n_heads=n_heads, 
                     d_ff=d_ff, 
-                    dropout=dropout)
+                    dropout=dropout,
+                    norm='')
             )
         
         self.enc_value_embeddings = nn.ModuleList()
@@ -56,6 +51,7 @@ class former(nn.Module):
             # Embedding
             self.enc_value_embeddings.append(Patch_embedding(seg_len, d_model))
             self.enc_pos_embedding.append(nn.Parameter(torch.randn(1, data_dim, (pad_in_len // seg_len), d_model)).to(device))
+            # self.enc_pos_embedding.append(positional_encoding("zeros", True, seg_num, d_model).to(device))
             self.pre_norms.append(nn.LayerNorm(d_model))
 
         # Predict
@@ -63,6 +59,10 @@ class former(nn.Module):
 
         
     def forward(self, x_seq):
+        # norm
+        if self.revin: 
+            x_seq = self.revin_layer(x_seq, 'norm')
+
         x = 0
         for i, embedding, pre_norm in zip(range(self.patch_num),self.enc_value_embeddings,self.pre_norms):
 
@@ -75,9 +75,7 @@ class former(nn.Module):
             x_temp += self.enc_pos_embedding[i]
             x_temp = pre_norm(x_temp)
 
-            # x_temp = self.inner_attentions[i](x_temp)
-
-            for attention in self.outer_attentions:
+            for attention in self.attentions:
                 x_temp = attention(x_temp)
 
             if i == 0:
@@ -85,12 +83,16 @@ class former(nn.Module):
             else:
                 x = torch.cat((x, x_temp),dim=2)
 
-        for attention in self.outer_attentions:
+        for attention in self.attentions:
             x = attention(x)
         x = rearrange(x,'b d s dd -> b d (s dd)')
 
         final_y = self.Predict(x)
 
         predict = rearrange(final_y,'b d out -> b out d')
+        
+        # denorm
+        if self.revin: 
+            predict = self.revin_layer(predict, 'denorm')
         
         return predict
